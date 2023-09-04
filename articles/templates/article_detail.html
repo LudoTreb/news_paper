@@ -3,9 +3,9 @@
 {% block content %}
 
 <div class="article-entry">
-    <h2>{{ objet.title }}</h2>
-    <p>by {{ objet.author }} | {{ objet.date }}</p>
-    <p>{{ objet.body }}</p>
+    <h2>{{ article.title }}</h2>
+    <p>by {{ article.author }} | {{ article.date }}</p>
+    <p>{{ article.body }}</p>
 </div>
 <p><a href="{% url 'article_edit' article.pk %}">Edit</a> |
    <a href="{% url 'article_delete' article.pk %}">Delete</a></p>

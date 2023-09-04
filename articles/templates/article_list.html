@@ -19,7 +19,7 @@
               <div class="card-footer">
                 <small class="text-body-secondary">{{ article.date }}</small>
                 <br>
-                <a href="#">Edit</a> | <a href="#">Delete</a>
+                <a href="{% url 'article_edit' article.pk %}">Edit</a> | <a href="{% url 'article_delete' article.pk %}">Delete</a>
               </div>
             </div>
           </div>        
