@@ -4,8 +4,11 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-    Hi {{ user.username }}! You're {{ user.age }} years old.
+    Hi {{ user.username|capfirst }}!
     <p><a href="{% url 'logout' %}">Log Out</a></p>
+    
+    <a href="{% url 'article_list' %}" class="btn btn-primary">Go to articles</a>
+
 {% else %}
     <p>You're not logged in</p>
     <a href="{% url 'login' %}">Log In</a> |
