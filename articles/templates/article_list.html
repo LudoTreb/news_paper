@@ -11,26 +11,30 @@
               </svg>
               <!--Replace by image here-->
               <img src="" class="card-img-top" alt="">
-              <div class="card-body">
-                <span class="fs-3">{{ article.title }}</span> &middot;
-                <span class="text-muted">by {{ article.author }}</span>
-                <p class="card-text">{{ article.body }}</p>
-              </div>
-              <div class="card-footer">
-                {% for comment in article.comment_set.all %}
-                  <p>
-                    <span>
-                      {{ comment.author }} &middot;
-                    </span>
-                    {{ comment }}
-                  </p>
-                {% endfor %}
-              </div>
-              <div class="card-footer">
-                <small class="text-body-secondary">{{ article.date }}</small>
-                <br>
-                <a href="{% url 'article_edit' article.pk %}">Edit</a> | <a href="{% url 'article_delete' article.pk %}">Delete</a>
-              </div>
+              <a href="{% url 'article_detail' article.pk %}" style="text-decoration:none; color:inherit;">
+                <div class="card-body">
+                  <span class="fs-3">{{ article.title }}</span> &middot;
+                  <span class="text-muted">by {{ article.author }}</span>
+                  <p class="card-text">{{ article.body|truncatechars:184 }}</p>
+                </div>
+              </a>
+
+              {% if article.comment_set.all %}
+              <ul class="list-group list-group-flush">
+                {% for comment in article.comment_set.all|slice:":2" %}
+                    <li class="list-group-item bg-light">{{ comment.author }} &middot; {{ comment|truncatechars:25 }}</li>
+                  {% endfor %}
+                </ul>
+                {% endif %}
+
+                <div class="toast-header p-2">
+                  <small class="me-auto">{{ article.date }}</small>
+                  {% if user.username == article.author.username %}
+                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                      <a href="{% url 'article_edit' article.pk %}" class="btn btn-outline-secondary btn-sm">Edit</a><a href="{% url 'article_delete' article.pk %}" class="btn btn-danger btn-sm ">Delete</a>
+                    </div>  
+                  {% endif %}
+                </div>
             </div>
           </div>        
 {% endfor %}
