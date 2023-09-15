@@ -34,13 +34,6 @@
           <li><a class="dropdown-item" href="{% url 'logout' %}">Log Out</a></li>
         </ul>
       </div>
-      {% else %}
-      </ul>
-      <div class="text-end">
-        <a href="{% url 'login' %}" class="btn btn-outline-primary me-2">
-          Log In</a>
-        <a href="{% url 'signup' %}" class="btn btn-primary">Sign Up</a>
-      </div>
       {% endif %}
     </div>
     </div>
