@@ -8,6 +8,12 @@
     <p>by {{ article.author }} | {{ article.date }}</p>
     <p>{{ article.body }}</p>
 </div>
+{% if user.username == article.author.username %}
+    <p>
+        <a href="{% url 'article_edit' article.pk %}" class="btn btn-outline-secondary btn-sm">Edit</a>
+        <a href="{% url 'article_delete' article.pk %}" class="btn btn-danger btn-sm ">Delete</a>
+    </p>
+{% endif %}
 <hr>
 <h5>Comments</h5>
 {% for comment in article.comment_set.all %}
@@ -19,12 +25,10 @@
 <h5>Add a comment</h5>
 <form method="POST">{% csrf_token %}
     {{ form|crispy }}
-    <button class="btn btn-success ml-2" type="submit">Save</button>
+    <button class="btn btn-success ml-2" type="submit">Post comment</button>
 </form>
 <hr>
-<p><a href="{% url 'article_edit' article.pk %}">Edit</a> |
-   <a href="{% url 'article_delete' article.pk %}">Delete</a></p>
-<p>Back to <a href="{% url 'article_list' %}">All Articles</a>.</p>
+<p><a href="{% url 'article_list' %}" class="btn btn-primary">Go to all articles</a></p>
 
 
 {% endblock content %}
