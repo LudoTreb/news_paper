@@ -15,9 +15,9 @@
     <p>{{ article.body }}</p>
 </div>
 {% if user.username == article.author.username %}
-    <p>
-        <a href="{% url 'article_edit' article.pk %}" class="btn btn-outline-secondary btn-sm">Edit</a>
-        <a href="{% url 'article_delete' article.pk %}" class="btn btn-danger btn-sm ">Delete</a>
+    <p class="d-flex justify-content-end">
+        <a href="{% url 'article_edit' article.pk %}" class="btn btn-outline-secondary btn-sm me-2">Edit</a>
+        <a href="{% url 'article_delete' article.pk %}" class="btn btn-danger btn-sm me-2">Delete</a>
     </p>
 {% endif %}
 <hr>
