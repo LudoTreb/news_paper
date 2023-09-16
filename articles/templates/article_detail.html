@@ -5,7 +5,7 @@
 
 <div class="article-entry">
     <h2>{{ article.title }}</h2>
-    <p>by {{ article.author }} | {{ article.date|date:"Y N d" }}</p>
+    <p>by {{ article.author|capfirst }} | {{ article.date|date:"Y N d" }}</p>
     <div class="img-fluid pb-3">
     <svg class="bd-placeholder-img card-img-top" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
         <rect width="100%" height="100%" fill="#868e96"></rect>
@@ -28,7 +28,7 @@
 
     {% for comment in article.comments.all %}
         <p>
-            <strong>{{ comment.author }}</strong>: {{ comment }}
+            <strong>{{ comment.author|capfirst }}</strong>: {{ comment }}
         </p>
     {% endfor %}
 
