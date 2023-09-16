@@ -28,7 +28,7 @@
                 {% endif %}
 
                 <div class="toast-header p-2">
-                  <small class="me-auto">{{ article.date }}</small>
+                  <small class="me-auto">{{ article.date|date:"Y N d" }}</small>
                   {% if user.username == article.author.username %}
                      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                       <a href="{% url 'article_edit' article.pk %}" class="btn btn-outline-secondary btn-sm">Edit</a><a href="{% url 'article_delete' article.pk %}" class="btn btn-danger btn-sm ">Delete</a>
