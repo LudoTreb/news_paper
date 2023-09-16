@@ -22,13 +22,13 @@
 {% endif %}
 <hr>
 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseComment" aria-expanded="false" aria-controls="collapseExample">
-    Comments <span class="badge text-bg-secondary">{{ article.comments.all.count }}</span>
+    Comments <span class="badge text-bg-light">{{ article.comments.all.count }}</span>
 </button>
 <div class="collapse pt-3" id="collapseComment">
 
     {% for comment in article.comments.all %}
         <p>
-            {{ comment.author }} &middot; {{ comment }}
+            <strong>{{ comment.author }}</strong>: {{ comment }}
         </p>
     {% endfor %}
 
@@ -40,7 +40,7 @@
 </form>
 </div>
 <hr>
-<p><a href="{% url 'article_list' %}" class="btn btn-primary">Go to all articles</a></p>
+<p><a href="{% url 'article_list' %}" class="btn btn-primary">Go to articles</a></p>
 
 
 {% endblock content %}
