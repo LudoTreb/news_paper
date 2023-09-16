@@ -5,7 +5,7 @@
 
 <div class="article-entry">
     <h2>{{ article.title }}</h2>
-    <p>by {{ article.author }} | {{ article.date }}</p>
+    <p>by {{ article.author }} | {{ article.date|date:"Y N d" }}</p>
     <p>{{ article.body }}</p>
 </div>
 {% if user.username == article.author.username %}
