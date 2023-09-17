@@ -26,7 +26,7 @@ Click [here](https://lth-newspaper-8ffa74dfa98b.herokuapp.com/) to try it. Enjoy
 - Comments show the commenter's name and content.
 - Only superuser can moderate and delete comments on articles.
 
-### Next Feature
+### Next Features
 - User can upload image on their article
 - Visitors can read articles without needing an account.
 
