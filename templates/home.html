@@ -7,7 +7,7 @@
     Hi {{ user.username|capfirst }}!
     <p><a href="{% url 'logout' %}">Log Out</a></p>
     
-    <a href="{% url 'article_list' %}" class="btn btn-primary">Go to articles</a>
+    <a href="{% url 'article_list' %}" class="btn btn-primary btn-lg">Go to articles</a>
 
 {% else %}
     <p>You're not logged in</p>
