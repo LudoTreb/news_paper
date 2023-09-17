@@ -56,4 +56,3 @@ and open in browser this adress: <http:/127.0.0.1:8000/>
 You can create an account with the signup button or you can use this account ⬇️  
 Username: fake_user0  
 Password: fake_password0 
-
